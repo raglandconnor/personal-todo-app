@@ -14,6 +14,8 @@ function TodoForm({ todos, setTodos }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (input === "") return;
+
     setTodos([
       {
         id: nanoid(),
@@ -24,11 +26,6 @@ function TodoForm({ todos, setTodos }) {
 
     setInput("");
   };
-
-  console.log("input");
-  console.log(input);
-  console.log("todos");
-  console.log(todos);
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
