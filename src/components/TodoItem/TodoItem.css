@@ -1,0 +1,9 @@
+.todo-item {
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 100px;
+  width: 95%;
+  height: 85px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+}
