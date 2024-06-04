@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TodoForm.css";
+import { nanoid } from "nanoid";
 
-function TodoForm() {
+function TodoForm({ todos, setTodos }) {
+  const [input, setInput] = useState("");
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+
+    setInput(value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setTodos([
+      {
+        id: nanoid(),
+        text: input,
+      },
+      ...todos,
+    ]);
+
+    setInput("");
+  };
+
+  console.log("input");
+  console.log(input);
+  console.log("todos");
+  console.log(todos);
+
   return (
-    <div className="todo-form">
-      <input type="text" className="todo-input" placeholder="Create a todo" />
-      <button className="todo-submit">Create</button>
-    </div>
+    <form className="todo-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="todo-input"
+        placeholder="Create a todo"
+        value={input}
+        onChange={handleChange}
+      />
+      <button className="todo-submit">Add</button>
+    </form>
   );
 }
 
