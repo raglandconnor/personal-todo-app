@@ -5,7 +5,7 @@ import { FiEdit3 } from "react-icons/fi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
-  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
 
   const handleEdit = (e) => {
@@ -14,10 +14,12 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
   };
 
   const handleToggleEdit = (todo) => {
-    if (!isEditing) {
+    if (editingId !== todo.id) {
       setEditText(todo.text);
+      setEditingId(todo.id);
+    } else {
+      setEditingId(null);
     }
-    setIsEditing(!isEditing);
   };
 
   const handleKeyDown = (e, todo) => {
@@ -31,7 +33,7 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
   const todoElements = todos.map((todo) => {
     return (
       <div key={todo.id} className="todo-item">
-        {isEditing ? (
+        {editingId === todo.id ? (
           <input
             className="todo-edit-input"
             type="text"
@@ -44,13 +46,13 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
           <p className="todo-text">{todo.text}</p>
         )}
         <div>
-          {isEditing ? (
+          {editingId === todo.id ? (
             <MdOutlineDoneOutline
               className="todo-edit"
               onClick={() => {
                 handleSubmitEdit(todo.id, editText);
                 setEditText("");
-                handleToggleEdit(todo);
+                setEditingId(null);
               }}
             />
           ) : (
