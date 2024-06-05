@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./TodoForm.css";
 import { nanoid } from "nanoid";
 
 function TodoForm({ todos, setTodos }) {
   const [input, setInput] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -35,6 +40,7 @@ function TodoForm({ todos, setTodos }) {
         placeholder="Create a todo"
         value={input}
         onChange={handleChange}
+        ref={inputRef}
       />
       <button className="todo-submit">Add</button>
     </form>
