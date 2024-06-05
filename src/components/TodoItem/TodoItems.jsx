@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./TodoItems.css";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FiEdit3 } from "react-icons/fi";
@@ -7,6 +7,13 @@ import { MdOutlineDoneOutline } from "react-icons/md";
 function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
+  const inputRefs = useRef({});
+
+  useEffect(() => {
+    if (editingId !== null && inputRefs.current[editingId]) {
+      inputRefs.current[editingId].focus();
+    }
+  }, [editingId]);
 
   const handleEdit = (e) => {
     const { value } = e.target;
@@ -41,6 +48,7 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
             value={editText}
             onChange={handleEdit}
             onKeyDown={(e) => handleKeyDown(e, todo)}
+            ref={(el) => (inputRefs.current[todo.id] = el)}
           />
         ) : (
           <p className="todo-text">{todo.text}</p>
