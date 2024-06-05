@@ -3,8 +3,9 @@ import "./TodoItems.css";
 import { TiDeleteOutline } from "react-icons/ti";
 import { FiEdit3 } from "react-icons/fi";
 import { MdOutlineDoneOutline } from "react-icons/md";
+import TodoItemCountdown from "../TodoItemCountdown/TodoItemCountdown";
 
-function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
+function TodoItems({ todos, handleRemove, handleSubmitEdit }) {
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
   const inputRefs = useRef({});
@@ -56,7 +57,8 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
         ) : (
           <p className="todo-text">{todo.text}</p>
         )}
-        <div>
+        <div className="timer-options">
+          <TodoItemCountdown date={todo.date} />
           {editingId === todo.id ? (
             <MdOutlineDoneOutline
               className="todo-edit"
@@ -88,4 +90,4 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
   return <>{todoElements}</>;
 }
 
-export default TodoItem;
+export default TodoItems;

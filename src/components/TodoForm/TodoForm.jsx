@@ -54,13 +54,14 @@ function TodoForm({ todos, setTodos }) {
 
     if (input === "") return;
 
-    setTodos([
-      {
-        id: nanoid(),
-        text: input,
-      },
-      ...todos,
-    ]);
+    const newTodo = {
+      id: nanoid(),
+      text: input,
+      date: date,
+    };
+
+    const sortedTodos = [newTodo, ...todos].sort((a, b) => a.date - b.date);
+    setTodos(sortedTodos);
 
     setInput("");
   };
@@ -86,6 +87,7 @@ function TodoForm({ todos, setTodos }) {
           value={getStringDate()}
           name="date"
           onChange={handleChange}
+          required={true}
         />
       </span>
       <button className="todo-submit">Add</button>
