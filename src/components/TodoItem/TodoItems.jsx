@@ -17,6 +17,7 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
 
   const handleEdit = (e) => {
     const { value } = e.target;
+
     setEditText(value);
   };
 
@@ -30,10 +31,12 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
   };
 
   const handleKeyDown = (e, todo) => {
-    if (e.keyCode === 13) {
-      handleSubmitEdit(todo.id, editText);
-      setEditText("");
-      handleToggleEdit(todo);
+    if (editText !== "") {
+      if (e.keyCode === 13) {
+        handleSubmitEdit(todo.id, editText);
+        setEditText("");
+        handleToggleEdit(todo);
+      }
     }
   };
 
@@ -58,9 +61,13 @@ function TodoItem({ todos, handleRemove, handleSubmitEdit }) {
             <MdOutlineDoneOutline
               className="todo-edit"
               onClick={() => {
-                handleSubmitEdit(todo.id, editText);
-                setEditText("");
-                setEditingId(null);
+                if (editText !== "") {
+                  handleSubmitEdit(todo.id, editText);
+                  setEditText("");
+                  setEditingId(null);
+                } else {
+                  inputRefs.current[todo.id].focus();
+                }
               }}
             />
           ) : (
