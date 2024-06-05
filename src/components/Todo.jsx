@@ -11,11 +11,30 @@ function Todo() {
     setTodos(newTodos);
   };
 
+  const handleSubmitEdit = (todoId, editText) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+        return {
+          ...todo,
+          text: editText,
+        };
+      }
+
+      return todo;
+    });
+
+    setTodos(newTodos);
+  };
+
   return (
     <div className="todo">
       <div className="todo--container">
         <TodoForm todos={todos} setTodos={setTodos} />
-        <TodoItems todos={todos} handleRemove={removeTodoItem} />
+        <TodoItems
+          todos={todos}
+          handleRemove={removeTodoItem}
+          handleSubmitEdit={handleSubmitEdit}
+        />
       </div>
     </div>
   );

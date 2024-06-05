@@ -27,7 +27,7 @@
 }
 
 .todo-input:focus {
-  outline: 1px dashed rgba(0, 0, 0, 0.25);
+  outline: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .todo-submit {

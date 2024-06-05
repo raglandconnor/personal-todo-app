@@ -11,8 +11,12 @@
 }
 
 .todo-text {
+  margin-left: 10px;
   margin-right: auto;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  max-width: 450px;
+  max-height: 75px;
+  overflow: hidden;
 }
 
 .todo-edit {
@@ -42,4 +46,18 @@
 
 .todo-remove:active {
   scale: 1.4;
+}
+
+.todo-edit-input {
+  background-color: transparent;
+  border: none;
+  height: 50px;
+  width: 85%;
+  margin-right: 10px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
+  font-size: 1rem;
+  border-radius: 50px;
+  outline: 1px dashed rgba(0, 0, 0, 0.25);
 }
