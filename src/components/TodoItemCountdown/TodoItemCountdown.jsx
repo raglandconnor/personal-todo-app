@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import "./TodoItemCountdown.css";
 
 function TodoItemCountdown({ date }) {
+  const [isFinished, setIsFinished] = useState(false);
   const [countdown, setCountdown] = useState(getCountdownString(date));
+  const [todoStyling, setTodoStyling] = useState(false);
 
   function getCountdownString(date) {
+    if (isFinished) return "Time's up!";
     const now = new Date();
     const diff = date - now;
 
     if (diff.valueOf() < 0) {
+      setIsFinished(true);
       return "Time's up!";
     }
 
@@ -41,9 +45,28 @@ function TodoItemCountdown({ date }) {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    let interval;
+    if (isFinished) {
+      interval = setInterval(() => {
+        setTodoStyling((prevTodoStyle) => !prevTodoStyle);
+      }, 750);
+    }
+
+    return () => clearInterval(interval);
+  }, [isFinished]);
+
   return (
     <div>
-      <p className="todo-date">{countdown}</p>
+      <p
+        className={
+          todoStyling && isFinished
+            ? "todo-date todo-finished-red"
+            : "todo-date"
+        }
+      >
+        {countdown}
+      </p>
     </div>
   );
 }

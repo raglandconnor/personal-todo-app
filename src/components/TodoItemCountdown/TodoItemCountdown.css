@@ -4,3 +4,11 @@
   margin-right: 10px;
   white-space: nowrap;
 }
+
+.todo-finished-red {
+  color: rgb(255, 55, 55);
+}
+
+.todo-finished-black {
+  color: black;
+}
