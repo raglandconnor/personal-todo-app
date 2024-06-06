@@ -30,11 +30,13 @@ function Todo() {
     <div className="todo">
       <div className="todo--container">
         <TodoForm todos={todos} setTodos={setTodos} />
-        <TodoItems
-          todos={todos}
-          handleRemove={removeTodoItem}
-          handleSubmitEdit={handleSubmitEdit}
-        />
+        <div className="todo-items--container">
+          <TodoItems
+            todos={todos}
+            handleRemove={removeTodoItem}
+            handleSubmitEdit={handleSubmitEdit}
+          />
+        </div>
       </div>
     </div>
   );
