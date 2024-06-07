@@ -1,5 +1,5 @@
 .todo-item {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.058);
   width: 100px;
   width: 85%;
   height: 85px;
@@ -8,15 +8,21 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  flex: 0 0 auto;
 }
 
 .todo-text {
   margin-left: 10px;
   margin-right: auto;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  max-width: 450px;
+  max-width: 90%;
   max-height: 75px;
   overflow: hidden;
+}
+
+.timer-options {
+  display: flex;
+  align-items: center;
 }
 
 .todo-edit {
@@ -52,8 +58,8 @@
   background-color: transparent;
   border: none;
   height: 50px;
-  width: 85%;
-  margin-right: 10px;
+  width: 100%;
+  margin-right: 15px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding-left: 10px;

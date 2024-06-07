@@ -1,5 +1,5 @@
 .todo-form {
-  background-color: lightgrey;
+  background-color: rgba(0, 0, 0, 0.094);
   -webkit-backdrop-filter: blur(8px); /* Safari 9+ */
   backdrop-filter: blur(8px); /* Chrome and Opera */
   box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.08);
@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: 0 10px;
   margin-bottom: 10px;
+  align-self: center;
 }
 
 .todo-input {
@@ -18,7 +19,7 @@
   border: none;
   height: 40px;
   width: 90%;
-  margin-right: 15px;
+  margin-right: 10px;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   padding-left: 15px;
@@ -30,18 +31,77 @@
   outline: 1px solid rgba(0, 0, 0, 0.25);
 }
 
+/* Help with datepicker toggle button: https://dev.to/codeclown/styling-a-native-date-input-into-a-custom-no-library-datepicker-2in */
+
+.datepicker-toggle {
+  height: 42px;
+  width: 140px;
+  position: relative;
+  margin-right: 6px;
+}
+
+.datepicker-toggle:active .datepicker-toggle-button {
+  background: linear-gradient(to top, #ffffff, #f0f0f0);
+}
+
+.datepicker-toggle-button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to top, #f0f0f0, #ffffff);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: rgb(69, 69, 69);
+  transition: 0.15s ease;
+}
+
+.datepicker-toggle:hover .datepicker-toggle-button {
+  font-size: 0.875rem;
+  color: black;
+}
+
+.datepicker-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.datepicker-input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 .todo-submit {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   border: none;
-  height: 70%;
+  height: 42px;
   width: 100px;
   border-radius: 50px;
   cursor: pointer;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   font-size: 1.2rem;
   background: linear-gradient(to top, #f0f0f0, #ffffff);
+  transition: 0.15s ease;
 }
 
 .todo-submit:active {
   background: linear-gradient(to top, #ffffff, #f0f0f0);
+}
+
+.todo-submit:hover {
+  font-size: 1.3rem;
 }
