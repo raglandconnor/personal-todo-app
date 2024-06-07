@@ -1,9 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoForm from "./TodoForm/TodoForm";
 import TodoItems from "./TodoItem/TodoItems";
 
 function Todo() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(retrieveFromLocal());
+
+  function retrieveFromLocal() {
+    let localArray = JSON.parse(localStorage.getItem("todos"));
+    if (localArray) {
+      localArray = localArray.map((todo) => {
+        return {
+          ...todo,
+          date: new Date(todo.date),
+        };
+      });
+    } else {
+      localArray = [];
+    }
+
+    return localArray;
+  }
+
+  console.log(todos);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const removeTodoItem = (todoId) => {
     const newTodos = todos.filter((todo) => todo.id !== todoId);
