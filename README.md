@@ -1,6 +1,6 @@
 # Pomodoro+
 
-### [The project can be accessed here](https://pomodoro-plus-qc99zqf4l-connor-raglands-projects.vercel.app/)
+## [Live site](https://pomodoro-plus-qc99zqf4l-connor-raglands-projects.vercel.app/)
 
 ### [Read the full project description here](https://www.raglandconnor.com/projects/todo-list)
 
