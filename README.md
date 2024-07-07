@@ -2,12 +2,7 @@
 
 ### [The project can be accessed here](https://pomodoro-plus-qc99zqf4l-connor-raglands-projects.vercel.app/)
 
-## Table of Contents
-
--   [Features](#features)
--   [Technologies Used](#technologies-used)
--   [Contact](#contact)
-<!-- -   [Installation](#installation) -->
+### [In depth overview of the project](http://localhost:5174/projects/todo-list)
 
 ## Features
 
@@ -25,26 +20,6 @@
 -   JavaScript
 -   React
 -   Vite
-
-<!-- ## Installation
-
-1. Clone the repo
-
-```
-git clone [link]
-```
-
-2. Install NPM packages
-
-```
-npm install
-```
-
-3. Start the development server
-
-```
-npm run dev
-``` -->
 
 ## Contact
 
