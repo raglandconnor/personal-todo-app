@@ -2,7 +2,7 @@
 
 ### [The project can be accessed here](https://pomodoro-plus-qc99zqf4l-connor-raglands-projects.vercel.app/)
 
-### [In depth overview of the project](http://localhost:5174/projects/todo-list)
+### [In depth overview of the project](https://www.raglandconnor.com/projects/todo-list)
 
 ## Features
 
