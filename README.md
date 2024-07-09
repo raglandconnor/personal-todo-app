@@ -20,8 +20,3 @@
 -   JavaScript
 -   React
 -   Vite
-
-## Contact
-
--   [LinkedIn](https://www.linkedin.com/in/raglandconnor/)
--   [raglandconnor.com](https://raglandconnor.com/)
